@@ -1,0 +1,43 @@
+User
+    ident Text Eq
+    display Text default=''
+    password Text
+    customer CustomerId
+    privilege Int
+    UniqueUser ident
+    deriving Show Typeable
+
+Customer
+    name Text
+
+Message
+  name Text
+  created UTCTime
+  sender Text
+  UniqueMessage name
+  deriving Show
+
+Folder
+  owner UserId
+  -- we want name lazy for the "error" in Model/Folder
+  ~name Text
+  role Int
+  class Bool
+  delReadDays Int Maybe
+  delReadDest FolderId Maybe
+  delUnreadDays Int Maybe
+  delUnreadDest FolderId Maybe
+  OwnerName owner name
+  deriving Show
+
+Muse
+  owner UserId
+  message MessageId
+  folder FolderId
+  access UTCTime Maybe -- nothing implies never seen
+  class Text Maybe -- Nothing implies not yet classified
+  surety Int
+  trained Bool
+  -- add booleans classified and archived
+  OwnerMessage owner message
+  deriving Show
