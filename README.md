@@ -1,7 +1,8 @@
 # odd-ghc-pattern-bug
-Demonstrates a ghc bug in pattern matching on persistent types
+Demonstrates a ghc bug in pattern matching on persistent types. This code is
+simplified from a non-trivial yesod site.
 
-This code is simplified from a non-trivial yesod site
+Run the commands in `RUNME` to exercise the bug
 
 Muse, Message and Folder are 3 of my persistent tables, so their actual
 definitions come from Template Haskell in persistent-template
